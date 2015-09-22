@@ -1,0 +1,60 @@
+package arraytesting;
+import java.util.Scanner;
+
+/**
+ *
+ * @author TGuptaNYC
+ */
+public class ArrayTesting {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner in = new Scanner(System.in);
+        
+        int integernumbers;
+      
+        System.out.println("How many integers do you want to test?");
+        integernumbers = in.nextInt();
+        
+
+        int[] anArray;
+        anArray = new int[integernumbers];
+
+        int clock;
+        
+        clock = 0;
+        
+                
+        while (clock < (integernumbers)) {
+            System.out.println("Input an integer");
+            anArray[clock] = in.nextInt();
+            clock++;
+        }
+        
+        int sum, first, second, FirstMax, SecondMax, FinalMax;
+        
+        first = 0;
+        second = 1;
+        
+        clock = 0;
+        
+        int sum;
+
+        for (int i : anArray)
+            sum += i;
+       
+        
+      //  while(second < 5) {
+      //      SecondMax = Math.max()
+      //      first++;
+       //     second++;
+      //         }
+        
+      //  System.out.println(FinalMax); 
+      
+    }
+    
+}
