@@ -29,18 +29,12 @@ public class Location {
         String lowercaseString = input.toLowerCase();
         // make new string with all of inputted string lowercase
         
-        if (lowercaseString.charAt(0) == 'a') {
-            System.out.println("The first character of your string is a vowel!");
-        } else if (lowercaseString.charAt(0) == 'e') {
-            System.out.println("The first character of your string is a vowel!");
-        } else if (lowercaseString.charAt(0) == 'o') {
-            System.out.println("The first character of your string is a vowel!");
-        } else if (lowercaseString.charAt(0) == 'u') {
-            System.out.println("The first character of your string is a vowel!");
-        } else if (lowercaseString.charAt(0) == 'i') {
-            System.out.println("The first character of your string is a vowel!");
+        char z = lowercaseString.charAt(0);
+        
+        if (z == 'a'|| z== 'e'|| z== 'i'|| z== 'o'||z=='u') {
+            System.out.println("The first character of your string is vowel!");
         } else {
-            System.out.println("The first character of your string is NOT a vowel!");
+            System.out.println("The first character of your string is NOT a vowel");
         }
         // tests whether the first character in the lowercase string is a vowel
         
