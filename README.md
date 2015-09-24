@@ -1,2 +1,2 @@
 # CompSci2
-My Computer Science 2 Class
+TGuptaNYC's CompSci 2 Class
