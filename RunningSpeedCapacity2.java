@@ -14,8 +14,8 @@ public class RunningSpeedCapacity2 {
             Author: TGuptaNYC
             Date: 10/2/2016
             Title: RunningSpeedCapacity
-            Description: takes height, weight, stride of 5 people
-            Output: outputs a sorted
+            Description: takes height, weight, stride of 5 people, finds their running speeds and chooses a winner using random factors
+            Output: outputs the winner
         */
         
         Scanner input = new Scanner(System.in);
@@ -85,5 +85,6 @@ public class RunningSpeedCapacity2 {
         String output = name + " " + speed;
         return output;
     }
-
+    
+    // output as expected 10/6/15
 }
