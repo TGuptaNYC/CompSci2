@@ -82,7 +82,7 @@ public class RunningSpeedCapacity2 {
             speed = e;
         }
         
-        String output = name + " " + speed;
+        String output = name + speed;
         return output;
     }
     
