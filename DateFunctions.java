@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package datefunctions;
 
 import java.util.Scanner;
@@ -51,10 +46,16 @@ public class DateFunctions {
         // outputs
     }
     
-    public static int JulianDate(int month, int day, int year) {
+    public static String JulianDate(int month, int day, int year) {
         // start date of JulianDate = January 1, 4713 B.C.
         int newyear = year + 4713;
-        
+        int newday = month * 30 + day;
+        String syear;
+        syear = Integer.toString(newyear);
+        String sday;
+        sday = Integer.toString(newday);        
+        String output = syear+sday;
+        return output;
         
     }
     
