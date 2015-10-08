@@ -40,7 +40,7 @@ public class DateFunctions {
         
         
         System.out.println(JulianDate(month, day, year));
-        System.out.println(NormalDate(julian));
+        System.out.println(normalDate(julian));
         System.out.println(DaysBetween(firstdate, seconddate));
         
         // outputs
@@ -56,14 +56,47 @@ public class DateFunctions {
         sday = Integer.toString(newday);        
         String output = syear+sday;
         return output;
-        
     }
     
-    public static int NormalDate(int julian) {
+    public static String normalDate(int julian) {
+        String sjulian = Integer.toString(julian);
+        String syear =  sjulian.substring(0, 3);
+        int nyear  = Integer.parseInt(syear);
+        nyear = nyear - 4713;
+        String sday = sjulian.substring(4, 6);
+        int day = Integer.parseInt(sday);
+        int nmonth = day/30;
+        int nday = day%30;
         
+        String smonth = "";
+        if ((Integer.toString(nmonth)).length() == 1) {
+            smonth = "0" + nmonth;
+        } else {
+            smonth = Integer.toString(nmonth);
+        }
+        
+        String oday;
+        if ((Integer.toString(nday)).length() == 1) {
+            oday = "0" + nday;
+        } else {
+            oday = Integer.toString(nday);
+        }
+        String output = smonth + " " + oday + " " + Integer.toString(nyear);
+        return output;
     }
     
     public static int DaysBetween(int firstdate, int seconddate) {
         /* input dates in YYYYMMDD */
+        int nfyear = Integer.parseInt(((Integer.toString(firstdate)).substring(0,3)));
+        int nfmonth = Integer.parseInt(((Integer.toString(firstdate)).substring(4,5)));
+        int nfday = Integer.parseInt(((Integer.toString(firstdate)).substring(6,7)));
+        int nsyear = Integer.parseInt(((Integer.toString(seconddate)).substring(0,3)));
+        int nsmonth = Integer.parseInt(((Integer.toString(seconddate)).substring(4,5)));
+        int nsday = Integer.parseInt(((Integer.toString(seconddate)).substring(6,7)));
+        
+        int fdy = nfday + nfmonth*30 + nfyear * 365;
+        int sdy = nsday + nsmonth*30 + nsyear * 365;
+        int difference = Math.abs(fdy-sdy);             
+        return difference;
     }
 }
