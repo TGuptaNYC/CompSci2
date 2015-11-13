@@ -1,0 +1,71 @@
+package treeclass;
+public class Tree {
+    private boolean maple;
+    private int age, circumference, percentage;
+    private String color;
+    
+    public Tree() {
+        this.maple = true;
+        age = 150;
+        circumference = 55;
+        color = "mixed";
+        setPercentage(40);
+    }
+    
+    public Tree(boolean maple, int age, int circumference, String color, int percentage) {
+        this.maple = maple;
+        this.age = age;
+        this.circumference = circumference;
+        this.color = color;
+        setPercentage(percentage);
+        
+    }
+    
+    private void setType(boolean maple) {
+        this.maple = maple;
+    }
+    
+    public boolean getType() {
+        return this.maple;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public int getAge() {
+        return this.age;
+    }
+    
+    private void setCircumference(int circumference) {
+        this.circumference = circumference;
+    }
+    
+    public int getCircumference() {
+        return this.circumference;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
+    }
+    
+    public String getColor() {
+        return this.color;
+    }
+    
+    public void setPercentage(int percentage) {
+        if (percentage == 0) {
+            setColor(null);
+            this.percentage = percentage;
+        } else if (0 < percentage && percentage <= 100) {
+            this.percentage = percentage;
+        } else {
+            throw new IllegalArgumentException("Percentage must be between 0 and 100%");
+        }
+    }
+    
+    public int getPercentage() {
+        return this.percentage;
+    }
+    
+}
