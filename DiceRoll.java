@@ -1,9 +1,4 @@
 package diceroll;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class DiceRoll {
 
     public static void main(String[] args) {
