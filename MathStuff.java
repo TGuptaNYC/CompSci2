@@ -1,22 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mathstuff;
-
 import java.util.Scanner;
-
-
-/**
- *
- * @author 19guptat
- */
 public class MathStuff {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         double a = in.nextDouble();
@@ -52,7 +37,7 @@ public class MathStuff {
         double g = Math.sqrt(Math.pow(e, 2) - Math.pow(d, 2));
         System.out.println("Hypo  =" + e);
         System.out.println("Opposite = " + g);
-        System.out.println("Proof:" + PythagoreanTheorem(d, g) + " should be close to " + e);
+        System.out.println("Proof:" + PythagoreanTheorem(d, g) + " should be close to " + Math.abs(e));
         
         System.out.println("break");
         double h = in.nextDouble();
@@ -70,16 +55,17 @@ public class MathStuff {
         }
         
         System.out.println("break");
-        double k = in.nextDouble();
-        double l = in.nextDouble();
-        System.out.println(k * l);
+        double z = in.nextDouble(); // stride length
+        double k = in.nextDouble(); // strides per minute
+        double l = in.nextDouble(); // minutes 
+        System.out.println((z * k * l)/5280);
         
         System.out.println("break");
         double m = in.nextDouble();
         double n = in.nextDouble();
         double o = in.nextDouble();
         double p = in.nextDouble();
-        System.out.println(((m*n)-(o*p))/2);
+        System.out.println((((m*n)-(o*p))/2)/60);
         
         System.out.println("break");
         double q = in.nextDouble();
@@ -90,9 +76,17 @@ public class MathStuff {
         System.out.println("break");
         double s = in.nextDouble();
         double t = in.nextDouble();
-        System.out.println("BMI = " + ((s*0.454)/Math.pow((t*0.254),2)));
+        System.out.println("BMI = " + ((s*0.454)/Math.pow((t*0.254),2))*100);
         
+        System.out.println("break");
+        double u = in.nextDouble();
+        System.out.println("Human Years = " + (((int)(u-1)/3)*16+(u%3)*16/3+13));
         
+        System.out.println("break");
+        double v = in.nextDouble();
+        double w = in.nextDouble();
+        System.out.println("Taxes are " + ((v-1000-w*2000)*0.2));
+                
     }
     
     public static double PythagoreanTheorem(double sidelength01, double sidelength02) {
