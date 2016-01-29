@@ -22,14 +22,14 @@ public class DrugStore {
                 System.out.println("What is the quantity? [Only numbers please]");
                 int quantity = input.nextInt();
                 Item firstitem = new Item(name, buyerprice, sellprice, quantity);
-                a.AddItems(firstitem);
+                System.out.println(a.AddItems(firstitem));
             }
             else if (operation == 2) 
             {
                 System.out.println("You are searching items.");
                 System.out.println("What item do you want to search for?");
                 String itemsearch = input.next();
-                a.SearchItems(itemsearch);
+                System.out.println(a.SearchItems(itemsearch));
             }
             else if (operation == 3)
             {
@@ -38,14 +38,18 @@ public class DrugStore {
                 String buyingitem = input.next();
                 System.out.println("How many of the item are you buying?");
                 int numberbuying = input.nextInt();
-                a.BuyItems(buyingitem, numberbuying);
+                System.out.println(a.BuyItems(buyingitem, numberbuying));
             }
             else if (operation == 4)
             {
                 System.out.println("You are removing an item from the inventory.");
                 System.out.println("What item do you want to remove?");
                 String removingitem = input.next();
-                a.RemoveItems(removingitem);
+                System.out.println(a.RemoveItems(removingitem));
+            }
+            else {
+                System.out.println("Illegal input.");
+                clock++;
             }
             System.out.println("Do you want to perform another operation? Type y for YES and n for NO." + System.lineSeparator() + "Warning: Inputing n WILL delete your inventory.");
             String yesorno = input.next();
@@ -58,7 +62,6 @@ public class DrugStore {
     }
     
 }
-
 
 package drug.store;
 import java.util.*;
@@ -77,62 +80,62 @@ public class Inventory
          this.phonenumber = 1234567890;
     }
     
-    public void AddItems(Item a) 
+    public String AddItems(Item a) 
     {
         this.items[itemnumber] = a;
         this.itemnumber++;
+        return "Item added.";
     }
     
     public String SearchItems(String a) 
     {
-        for (int clock = 0; clock < this.itemnumber;) 
+        //System.out.println(this.itemnumber);
+        for (int clock = 0; clock <= this.itemnumber; clock++) 
         {
-            if (a.equals(this.items[clock].getDescription())) 
+            //System.out.println(this.items[clock].getDescription());
+            if (this.items[clock].getDescription().equals(a)) 
             {
                 return this.items[clock].getDetails();
             }
-            else
-            {
-                clock++;
-            }
-            
-                
+     
         }
         return null;
     }
     
     public String BuyItems(String a, int b) 
     {
-        for (int clock = 0; clock < this.itemnumber; clock++) 
+        for (int clock = 0; clock <= this.itemnumber; clock++) 
         {
             if (a.equals(this.items[clock].getDescription())) 
             {
                 if (b <= this.items[clock].getQuantity()) 
                 {
                     this.items[clock].setQuantity(this.items[clock].getQuantity() - b);
-                    return "Item " + this.items[clock].getDescription() + "has been bought.";
+                    return "Item " + this.items[clock].getDescription() + " has been bought.";
                 }
                 else 
                 {
-                    return "Not enough " + this.items[clock].getDescription() + "in stock. Item not bought. We apologize for this inconvenience.";        
+                    return "Not enough " + this.items[clock].getDescription() + " in stock. Item not bought. We apologize for this inconvenience.";        
                 }
             }         
         }
         return null;
     }
     
-    public void RemoveItems(String a) 
+    public String RemoveItems(String a) 
     {
         for (int clock = 0; clock < this.itemnumber; clock++)
         {
             if (a.equals(this.items[clock].getDescription())) 
             {
                 this.items[clock] = null;
+                return "Item removed.";
             }
         }
+        
+        return null;
     }
 }
-
 
 package drug.store;
 public class Item {
@@ -142,34 +145,47 @@ public class Item {
   private int quantity;
   
   public Item(String description, double buyer_price, double sales_price, int quantity) {
-    this.description = description;
-    this.buyerprice = buyerprice;
-    this.salesprice = salesprice;
-    this.quantity = quantity;
+    setDescription(description);
+    setBuyerPrice(buyer_price);
+    setSalesPrice(sales_price);
+    setQuantity(quantity);
+  }
+  
+  public void setDescription(String a) {
+      description = a;
   }
   
   public String getDescription() {
       return this.description;
   }
   
+  public void setBuyerPrice(double a) {
+      buyerprice = a;
+  }
   public double getBuyerPrice() {
       return this.buyerprice;
+  }
+  
+  public void setSalesPrice(double a) {
+      salesprice = a;
   }
   
   public double getSalesPrice() {
       return this.salesprice;
   }
+    
+  public void setQuantity(int a) {
+      quantity = a;
+  } 
   
   public int getQuantity() {
       return this.quantity;
   }
   
-  public void setQuantity(int quantity) {
-      this.quantity = quantity;
-  }
+
   
   public String getDetails() {
-      String details = "Item " + this.description + ":" + System.lineSeparator() + "Buyer Price: $" + this.buyerprice + System.lineSeparator() + "Sales Price: $" + this.salesprice + System.lineSeparator() + "Quantity: " + this.quantity;
+      String details = "Item " + description + "-" + " " + "Buyer Price: $" + buyerprice + " " + "Sales Price: $" + salesprice + " " + "Quantity: " + quantity;
       return details;
   }
 }  
